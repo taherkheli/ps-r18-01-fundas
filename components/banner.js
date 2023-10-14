@@ -14,7 +14,7 @@ const Banner = ( { headerText } ) => {
         {/* <img src="./GloboLogo.png" alt="logo" className={styles.logo} /> */}
         <img src="./GloboLogo.png" alt="logo" className={logo} />
       </div>
-      <div className="col-7 mt-5" style={subtitleStyle }>{ headerText }</div>
+      <div className="col-7 mt-5" style={ subtitleStyle }>{ headerText }</div>
     </header>
   );
 };
