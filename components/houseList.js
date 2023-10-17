@@ -1,17 +1,8 @@
-import { useEffect, useState } from "react";
+import useHouses from "../hooks/useHouses";
 import HouseRow from "./houseRow";
 
 const HouseList = ( { selectHouse } ) => {
-  const [houses, setHouses] = useState([]);  // houses = array representing current state; setHouses = function to change state
-
-  useEffect( () => {
-    const fetchHouses = async () => {
-      const response = await fetch("/api/houses");
-      const houses = await response.json();
-      setHouses(houses);
-    };
-    fetchHouses();
-  }, []);
+  const [ houses, setHouses ] = useHouses();   //useHouse is a custom hook which calls built-in hooks
 
   const addHouse = () => {
     setHouses([
