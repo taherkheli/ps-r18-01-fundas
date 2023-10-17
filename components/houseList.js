@@ -1,8 +1,14 @@
 import useHouses from "../hooks/useHouses";
 import HouseRow from "./houseRow";
+import loadingStatus from "../helpers/loadingStatus";
+import LoadingIndicator from "./loadingIndicator";
 
 const HouseList = ( { selectHouse } ) => {
-  const [ houses, setHouses ] = useHouses();   //useHouse is a custom hook which calls built-in hooks
+  const [ houses, setHouses, loadingState] = useHouses();   //useHouse is a custom hook which calls built-in hooks
+
+  if (loadingState !== loadingStatus.loaded) {
+    return <LoadingIndicator loadingState={loadingState} />
+  }
 
   const addHouse = () => {
     setHouses([
